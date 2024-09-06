@@ -25,12 +25,13 @@ sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 2
 sudo update-alternatives --config python   # then type `2` to choose python3
 ```
 
-OpenCV:
+OpenCV and PCL:
 ```
-udo apt install -y libopencv-dev python3-opencv
+sudo apt install -y libopencv-dev python3-opencv
+sudo apt install -y libpcl-dev pcl-tools
 ```
 
-## [robotpkg](http://robotpkg.openrobots.org/) by LAAS lab
+## Install [robotpkg](http://robotpkg.openrobots.org/) by LAAS lab
 Add the robotpkg ppa:
 ```
 sudo sh -c 'echo "deb [arch=amd64] http://robotpkg.openrobots.org/wip/packages/debian/pub $(lsb_release -sc) robotpkg" > /etc/apt/sources.list.d/robotpkg-openrobots.list'
@@ -48,4 +49,12 @@ sudo apt install -y robotpkg-eigen-quadprog
 # test data
 sudo apt install -y robotpkg-example-robot-data
 sudo apt install -y robotpkg-py310-eigenpy robotpkg-py310-pinocchio robotpkg-py310-quadprog robotpkg-py310-crocoddyl robotpkg-py310-hpp-fcl
+```
+
+## ROS2
+Follow the official instruction for [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html). 
+Finally, to auto-source the setup file, add it into `.bashrc`:
+```
+echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
+source ~/.bashrc
 ```
