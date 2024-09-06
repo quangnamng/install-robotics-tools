@@ -47,7 +47,7 @@ Add `robotpkg` as source repository to apt:
 ```
 sudo apt install -qqy lsb-release curl
 sudo mkdir -p /etc/apt/keyrings
- curl http://robotpkg.openrobots.org/packages/debian/robotpkg.asc \
+curl http://robotpkg.openrobots.org/packages/debian/robotpkg.asc \
      | sudo tee /etc/apt/keyrings/robotpkg.asc
 echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/robotpkg.asc] http://robotpkg.openrobots.org/packages/debian/pub $(lsb_release -cs) robotpkg" \
      | sudo tee /etc/apt/sources.list.d/robotpkg.list
@@ -77,4 +77,4 @@ export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 ```
 Then `source ~/.bashrc`
 
-# TODO: any other packages?
+## TODO: anything else?
