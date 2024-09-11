@@ -14,7 +14,7 @@ git config --global user.name "your-github-username"
 git config --global user.email "your-email@address.com"
 ```
 
-Some python3 libruaries (some may be already installed in fresh Ubuntu):
+Some python3 libraries (some may be already installed in fresh Ubuntu):
 ```
 sudo apt install -y ipython3 python3-pip python3-dev python3-numpy python3-scipy python3-wstool
 # dependencies for catkin and ROS
@@ -35,7 +35,7 @@ sudo apt install -y libpcl-dev pcl-tools
 ```
 
 ## ROS2
-Follow the official instruction for [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html). 
+Follow the official instructions for [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html). 
 Finally, to auto-source the setup file, add it into `.bashrc`:
 ```
 echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
@@ -43,7 +43,7 @@ source ~/.bashrc
 ```
 
 ## Install some [robotpkg](http://robotpkg.openrobots.org/) packages:
-Add `robotpkg` as source repository to apt:
+Add `robotpkg` software repository to apt:
 ```
 sudo apt install -qqy lsb-release curl
 sudo mkdir -p /etc/apt/keyrings
@@ -54,7 +54,8 @@ echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/robotpkg.asc] http://robotpkg.
 sudo apt update
 ```
 
-Install [Pinocchio](https://stack-of-tasks.github.io/pinocchio/download.html) and other packages:
+Install [Pinocchio](https://stack-of-tasks.github.io/pinocchio/download.html), 
+[Crocoddyl](https://github.com/loco-3d/crocoddyl), and related packages:
 ```
 sudo apt install -y robotpkg-hpp-fcl
 sudo apt install -y robotpkg-libccd
@@ -62,6 +63,8 @@ sudo apt install -y robotpkg-octomap
 sudo apt install -y robotpkg-eigen-quadprog
 # pinoocchio
 sudo apt install -qqy robotpkg-py3*-pinocchio
+# crocoddyl
+sudo apt install -y robotpkg-py3\*-crocoddyl
 # test data
 sudo apt install -y robotpkg-example-robot-data
 sudo apt install -y robotpkg-py310-eigenpy robotpkg-py310-pinocchio robotpkg-py310-quadprog robotpkg-py310-crocoddyl robotpkg-py310-hpp-fcl
@@ -77,4 +80,4 @@ export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 ```
 Then `source ~/.bashrc`
 
-## TODO: anything else?
+## TODO: testing pinocchio and crocoddyl installation
