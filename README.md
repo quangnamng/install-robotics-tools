@@ -14,18 +14,26 @@ git config --global user.name "your-github-username"
 git config --global user.email "your-email@address.com"
 ```
 
+Set python3 as default:
+```
+sudo apt install -y python3 python2
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 2 
+sudo update-alternatives --config python
+# then type `1` to choose python3
+```
+
 Some python3 libraries (some may be already installed in fresh Ubuntu):
 ```
 sudo apt install -y ipython3 python3-pip python3-dev python3-numpy python3-scipy python3-wstool
+pip3 install --upgrade pip
 # dependencies for catkin and ROS
 sudo apt install -y python3-catkin-pkg-modules python3-rospkg-modules
-
-```
-Set python3 as default:
-```
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
-sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 2 
-sudo update-alternatives --config python   # then type `1` to choose python3
+# jupyter
+pip3 install jupyterlab notebook
+echo "alias jupyter-lab="~/.local/bin/jupyter-lab --no-browser"" >> ~/.bashrc
+echo "alias jupyter-notebook="~/.local/bin/jupyter-notebook --no-browser"" >> ~/.bashrc
+source ~/.bashrc
 ```
 
 OpenCV and PCL:
