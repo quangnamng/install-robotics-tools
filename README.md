@@ -42,15 +42,17 @@ sudo apt install -y libopencv-dev python3-opencv
 sudo apt install -y libpcl-dev pcl-tools
 ```
 
-## ROS2
-Follow the official instructions for [Humble](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html). 
-Finally, to auto-source the setup file, add it into `.bashrc`:
+
+## Install Pinocchio and Crocoddyl using Conda:
+Install [mim-solvers](https://github.com/machines-in-motion/mim_solvers) 
+which will install [Pinocchio](https://stack-of-tasks.github.io/pinocchio/download.html) 
+and [Crocoddyl](https://github.com/loco-3d/crocoddyl) as dependences:
 ```
-echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
-source ~/.bashrc
+conda install mim-solvers --channel conda-forge
 ```
 
-## Install some [robotpkg](http://robotpkg.openrobots.org/) packages:
+
+## (Not recommended) Install Pinocchio and Crocoddyl manually:
 Add `robotpkg` software repository to apt:
 ```
 sudo apt install -qqy lsb-release curl
@@ -62,8 +64,7 @@ echo "deb [arch=amd64 signed-by=/etc/apt/keyrings/robotpkg.asc] http://robotpkg.
 sudo apt update
 ```
 
-Install [Pinocchio](https://stack-of-tasks.github.io/pinocchio/download.html), 
-[Crocoddyl](https://github.com/loco-3d/crocoddyl), and related packages:
+Install Pinocchio, Crocoddyl and related packages:
 ```
 sudo apt install -y robotpkg-hpp-fcl
 sudo apt install -y robotpkg-libccd
@@ -78,7 +79,7 @@ sudo apt install -y robotpkg-example-robot-data
 sudo apt install -y robotpkg-py310-eigenpy robotpkg-py310-pinocchio robotpkg-py310-quadprog robotpkg-py310-crocoddyl robotpkg-py310-hpp-fcl
 ```
 
-Configure environment variables: add the following lines to `~/.bashrc`
+Configure environment variables: add the following lines to `~/.bashrc` (this may conflict with conda)
 ```
 export PATH=/opt/openrobots/bin:$PATH
 export PKG_CONFIG_PATH=/opt/openrobots/lib/pkgconfig:$PKG_CONFIG_PATH
@@ -87,5 +88,3 @@ export PYTHONPATH=/opt/openrobots/lib/python3.10/site-packages:$PYTHONPATH # Ada
 export CMAKE_PREFIX_PATH=/opt/openrobots:$CMAKE_PREFIX_PATH
 ```
 Then `source ~/.bashrc`
-
-## TODO: testing pinocchio and crocoddyl installation
